@@ -33,8 +33,12 @@ function LoginForm() {
         reset();
       }
     } catch (err) {
-      console.error(err);
-      console.log("Error while login the user: ", err.message);
+      if (err.response && err.response.data) {
+        toast.error("Login error:", err.response.data.message);
+        console.error("Login error:", err.response.data.message);
+      } else {
+        console.error("An unexpected error occurred:", err.message);
+      }
     }
   };
 

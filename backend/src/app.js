@@ -1,5 +1,6 @@
 import express from "express"
 import cors from "cors"
+import { ApiError } from "./utils/ApiError.js"
 
 const app = express()
 
@@ -23,6 +24,17 @@ app.use("/api/v1/users", userRoutes)
 app.use("/api/v1/books", bookRoutes)
 app.use("/api/v1/reviews", reviewRoutes)
 app.use("/api/v1/admin", adminRoutes)
+
+
+// error handling middleware
+app.use((err, req, res, next) => {
+    if (err instanceof ApiError) {
+        return res.status(err.status).json(err);
+    }
+
+    console.error(err);
+    res.status(500).json({ message: "Internal Server Error" });
+});
 
 
 export { app }
