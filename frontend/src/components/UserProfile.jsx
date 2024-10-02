@@ -12,7 +12,7 @@ function UserProfile() {
     const fetchUserDetails = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/v1/users/${id}`
+          `https://bookreview-backend-c6nn.onrender.com/api/v1/users/${id}`
         );
         setUser(response.data.data);
         setLoading(false);

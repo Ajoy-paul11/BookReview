@@ -12,7 +12,7 @@ export default function FeaturedBooks() {
     const getBooksData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/v1/books/?page=${page}`
+          `https://bookreview-backend-c6nn.onrender.com/api/v1/books/?page=${page}`
         );
         const bookInfo = response.data.data;
         setBooks(bookInfo.books);

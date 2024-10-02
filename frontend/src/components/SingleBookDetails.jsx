@@ -13,7 +13,7 @@ function SingleBookDetails() {
     const fetchBookDetails = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/v1/books/${id}`
+          `https://bookreview-backend-c6nn.onrender.com/api/v1/books/${id}`
         );
         setBook(response.data.data);
         setLoading(false);

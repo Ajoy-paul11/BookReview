@@ -12,7 +12,7 @@ function AdminDashboard() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const url = `http://localhost:8000/api/v1/admin/?genre=${genre}&search=${search}`;
+        const url = `https://bookreview-backend-c6nn.onrender.com/api/v1/admin/?genre=${genre}&search=${search}`;
         const response = await axios.get(url);
         setObj(response.data);
       } catch (error) {

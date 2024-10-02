@@ -30,7 +30,7 @@ function UserUpdateForm() {
 
     try {
       const response = await axios.patch(
-        `http://localhost:8000/api/v1/users/${id}`,
+        `https://bookreview-backend-c6nn.onrender.com/api/v1/users/${id}`,
         userData
       );
       if (response.data.data) {

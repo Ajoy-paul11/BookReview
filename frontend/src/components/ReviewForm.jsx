@@ -27,7 +27,7 @@ function ReviewForm() {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/v1/reviews",
+        "https://bookreview-backend-c6nn.onrender.com/api/v1/reviews",
         reviewData
       );
       if (response.data.data) {

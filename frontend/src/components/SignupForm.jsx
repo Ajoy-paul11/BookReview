@@ -23,7 +23,7 @@ function SignupForm() {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/v1/users/register",
+        "https://bookreview-backend-c6nn.onrender.com/api/v1/users/register",
         userData
       );
       if (response.data.data) {

@@ -8,7 +8,7 @@ function GetReview({ id }) {
     const getAllReview = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/v1/reviews/${id}`
+          `https://bookreview-backend-c6nn.onrender.com/api/v1/reviews/${id}`
         );
 
         const reviewData = response.data.data;
