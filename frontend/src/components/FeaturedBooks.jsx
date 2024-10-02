@@ -17,8 +17,6 @@ export default function FeaturedBooks() {
         const bookInfo = response.data.data;
         setBooks(bookInfo.books);
         setTotalPage(Math.ceil(bookInfo.totalBook / 3));
-        console.log(bookInfo.totalBook);
-        console.log(Math.ceil(bookInfo.totalBook / 3));
       } catch (error) {
         console.log("Something went wrong while fetching the book data");
       }
@@ -31,7 +29,7 @@ export default function FeaturedBooks() {
   };
 
   return (
-    <div>
+    <div className=" pb-4">
       <h2 className="text-2xl font-semibold mb-4">Featured Books</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {books.map((book) => (
@@ -41,13 +39,13 @@ export default function FeaturedBooks() {
             className="bg-[#F5F5DC] p-4 rounded shadow hover:shadow-md transition-shadow"
           >
             <h3 className="text-xl font-semibold text-[#1B1212]">
-              {book.title}
+              Book Name: {book.title}
             </h3>
-            <p className="text-[#1B1212] font-serif">{book.author}</p>
+            <p className="text-[#1B1212] font-serif">Author: {book.author}</p>
           </Link>
         ))}
       </div>
-      <div className=" w-32 h-8 mx-auto absolute right-1/2 mt-8">
+      <div className=" w-32 h-8 mx-auto absolute left-1/2 mt-8">
         {totalPage > 0 &&
           [...Array(totalPage)].map((_, index) => (
             <button

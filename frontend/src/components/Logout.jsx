@@ -6,8 +6,8 @@ function Logout() {
 
   const handleLogout = () => {
     localStorage.removeItem("Users");
-    window.location.reload();
     navigate("/");
+    window.location.reload();
   };
 
   return (
