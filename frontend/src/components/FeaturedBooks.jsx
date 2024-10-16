@@ -5,6 +5,8 @@ import axios from "axios";
 
 export default function FeaturedBooks() {
   const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [totalPage, setTotalPage] = useState(1);
   const [page, setPage] = useState(1);
 
@@ -17,8 +19,11 @@ export default function FeaturedBooks() {
         const bookInfo = response.data.data;
         setBooks(bookInfo.books);
         setTotalPage(Math.ceil(bookInfo.totalBook / 3));
+        setLoading(false);
       } catch (error) {
+        setError("Error while fetching books");
         console.log("Something went wrong while fetching the book data");
+        setLoading(false);
       }
     };
     getBooksData();
@@ -27,6 +32,10 @@ export default function FeaturedBooks() {
   const changePage = (nextPage) => {
     setPage(nextPage + 1);
   };
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>{error}</div>;
+  if (!books) return <div>Books not found</div>;
 
   return (
     <div className=" pb-4">
