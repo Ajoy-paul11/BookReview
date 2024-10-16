@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 export default function FeaturedBooks() {
   const [books, setBooks] = useState([]);
@@ -20,10 +21,13 @@ export default function FeaturedBooks() {
         setBooks(bookInfo.books);
         setTotalPage(Math.ceil(bookInfo.totalBook / 3));
         setLoading(false);
+        toast.success("Books fetched successfully");
       } catch (error) {
         setError("Error while fetching books");
-        console.log("Something went wrong while fetching the book data");
         setLoading(false);
+        if (error.response && error.response.data) {
+          toast.error(error.response.data.message);
+        }
       }
     };
     getBooksData();
