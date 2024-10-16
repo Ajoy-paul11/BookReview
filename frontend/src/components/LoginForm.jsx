@@ -34,7 +34,7 @@ function LoginForm() {
       }
     } catch (err) {
       if (err.response && err.response.data) {
-        toast.error("Login error:", err.response.data.message);
+        toast.error(err.response.data.message);
       } else {
         toast.error("An unexpected error occurred: ", err.message);
       }
