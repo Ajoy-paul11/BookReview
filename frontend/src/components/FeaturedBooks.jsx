@@ -33,7 +33,8 @@ export default function FeaturedBooks() {
     setPage(nextPage + 1);
   };
 
-  if (loading) return <div>Loading...</div>;
+  if (loading)
+    return <div className=" text-center mt-[32px] text-xl">Loading...</div>;
   if (error) return <div>{error}</div>;
   if (!books) return <div>Books not found</div>;
 
