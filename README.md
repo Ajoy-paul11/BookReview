@@ -65,13 +65,9 @@ If you don't have Node.js installed, you can download it from [nodejs.org](https
 
 ## Usage
 
----
-
 Begin by registering as a new user to get all the details about the books, a loggedIn user can submit the review of the book and also can change the personal details.
 
 ## Contact 👈👈
-
----
 
 <p align="left"> <a href="https://twitter.com/ajoy_paul11" target="blank"><img src="https://img.shields.io/twitter/follow/ajoy_paul11?logo=twitter&style=for-the-badge" alt="ajoy_paul11" /></a> </p>
 
