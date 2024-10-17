@@ -41,8 +41,11 @@ function UserUpdateForm() {
         reset();
       }
     } catch (err) {
-      console.error(err);
-      console.log("Error while login the user: ", err.message);
+      if (err.response && err.response.data) {
+        toast.error(err.response.data.message);
+      } else {
+        toast.error("Unexpected Error while updating user");
+      }
     }
   };
 

@@ -36,7 +36,9 @@ function ReviewForm() {
         reset();
       }
     } catch (err) {
-      console.log("Error while login the user: ", err.message);
+      if (err.response && err.response.data) {
+        toast.error(err.response.data.message);
+      }
     }
   };
 

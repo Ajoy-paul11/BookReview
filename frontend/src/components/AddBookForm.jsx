@@ -29,7 +29,11 @@ function AddBookForm() {
         reset();
       }
     } catch (err) {
-      console.log("Error: ", err.message);
+      if (err.response && err.response.data) {
+        toast.error(err.response.data.message);
+      } else {
+        toast.error("An unexpected error occurred");
+      }
     }
   };
 
